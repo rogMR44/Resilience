@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="icon" href="/images/logos/logo_ispaekable_c.png">
+        <link rel="icon" href="/images/logos/Image.png">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -38,11 +38,11 @@
 
     </head>    
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-blue-300">
+        <div class="min-h-screen bg-gray-400">
             @livewire('navigation')
 
             <!-- Page Content -->
-            <div class="bg-blue-300">
+            <div class="bg-gray-400">
                 {{ $slot }}
             </div>
         </div>

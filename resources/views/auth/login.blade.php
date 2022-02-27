@@ -2,7 +2,7 @@
     <div class="grid sm:grid-cols-1 md:grid-cols-2">
         <div class="hidden md:flex items-center justify-center">
             <div class="flex items-center justify-center m-4">                                    
-                    <img src="/images/auth/sittingChair.png" alt="chair">                   
+                    <img src="/images/logos/Image.png" alt="chair">                   
             </div>
         </div>
         <div class="m-28 md:flex items-center justify-center">

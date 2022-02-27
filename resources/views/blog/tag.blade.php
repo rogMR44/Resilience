@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center items-center">
         <h2 class="uppercase text-4xl font-bold text-blue-900 my-4">
-            ISPEAKABLE BLOG
+            BLOG
         </h2>
     </div>
     <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8py-8">

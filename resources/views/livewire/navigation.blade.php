@@ -1,4 +1,4 @@
-<nav class="bg-blue-300" x-data="{open:false}">
+<nav class="bg-gray-700" x-data="{open:false}">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
         <!-- Mobile menu button-->
@@ -32,14 +32,14 @@
       <div class="flex-1 flex items-center justify-center sm:justify-start">
             {{-- Logotipo --}}
             <a href="/" class="flex-shrink-0 flex items-center">
-                <img class="block lg:hidden h-20 w-auto" src="/images/logos/Website_Ispeakable.png" alt="iSPEAKABLE">
-                <img class="hidden lg:block h-32 w-auto" src="/images/logos/Website_Ispeakable.png" alt="iSPEAKABLE">
+                <img class="block lg:hidden h-8 w-auto" src="/images/logos/Image.png" alt="iSPEAKABLE">
+                <img class="hidden lg:block h-8 w-auto" src="/images/logos/Image.png" alt="iSPEAKABLE">
             </a>
             <div class="hidden sm:block items-center justify-center">
             {{-- Menu items --}}
                 <div class="flex space-x-4">
                     {{-- <a href="{{ route('') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Teachers</a> --}}
-                    <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog</a>                      
+                    {{-- <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog</a>                       --}}
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->                    
                 </div>
             </div>
@@ -53,7 +53,7 @@
                       <button x-on:click="open = true" type="button" class="text-white hover:underline hover:text-red-400 flex text-sm rounded-md focus:outline-none" id="user-menu" aria-expanded="false" aria-haspopup="true">
                         <span class="sr-only">Open user menu</span>
                           {{-- add user profile picture --}}
-                          <label for="" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog Administration</label>
+                          <label for="" class="text-white hover:underline hover:text-yellow-400 block px-3 py-2 rounded-md font-bold text-xl">Blog Administration</label>
                         </button>
                     </div>                    
                     <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">                      
@@ -94,6 +94,7 @@
                       <a href="{{ route('teacher.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>    
                     @endif
                     @if (Auth::user()->hasRole('admin'))                      
+                      <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
                       <a href="{{ route('admin.users.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Administration</a>                     
                     @endif
                     <form method="POST" action="{{ route('logout') }}">
@@ -108,8 +109,9 @@
             </div>
             @else
             <div>
-                <a href="{{ route('login') }}" class="text-white hover:underline hover:text-red-400 px-3 py-2 rounded-md font-bold text-xl">Login</a>
-                <a href="{{ route('register') }}" class="text-white hover:underline hover:text-red-400 px-3 py-2 rounded-md font-bold text-xl">Register</a>
+                <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Blog</a> 
+                <a href="" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Guia de Ejercicios</a>
+                <a href="{{ route('login') }}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Iniciar Sesion</a>                
         </div>    
         @endauth
     </div>
