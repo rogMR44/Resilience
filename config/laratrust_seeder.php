@@ -17,11 +17,11 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'teacher' => [
+        'entrenador' => [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'student' => [
+        'asesorado' => [
             'profile' => 'r,u',
         ]
     ],

@@ -39,22 +39,13 @@
             {{-- Menu items --}}
                 <div class="flex space-x-4">
                     {{-- <a href="{{ route('') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Teachers</a> --}}
-                    <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog</a>  
-                    <a href="{{ route('teachers') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Teachers</a>  
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    @auth
-                      @if (Auth::user()->hasRole('student'))                                          
-                        <a href="{{ route('classplans') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Buy classes</a>                                     
-                      @endif                                                                
-                    @endauth
+                    <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog</a>                      
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->                    
                 </div>
             </div>
       </div>
       @auth
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">              
-          @if (Auth::user()->hasRole('student'))
-            <p class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Available credits: {{auth()->user()->num_classes}}</p>
-          @endif          
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">                              
                 @if (Auth::user()->hasRole('admin'))
               
                   <div class="" x-data="{open:false}">
@@ -94,18 +85,16 @@
                     To: "transform opacity-0 scale-95"
                 -->
                   <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                    @if (Auth::user()->hasRole('student'))             
+                    @if (Auth::user()->hasRole('asesorado'))             
                       <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
                       <a href="{{ route('student.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>
                     @endif
-                    @if (Auth::user()->hasRole('teacher'))
+                    @if (Auth::user()->hasRole('entrenador'))
                       <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
                       <a href="{{ route('teacher.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>    
                     @endif
-                    @if (Auth::user()->hasRole('admin'))
-                      <a href="{{ route('admin.products.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Product Administration</a>
-                      <a href="{{ route('adminadd') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Administration</a>
-                      <a href="{{ route ('admin.languages.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Language Administration</a>            
+                    @if (Auth::user()->hasRole('admin'))                      
+                      <a href="{{ route('admin.users.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Administration</a>                     
                     @endif
                     <form method="POST" action="{{ route('logout') }}">
                       @csrf
@@ -130,8 +119,7 @@
   <div class="sm:hidden" x-show="open" x-on:click.away="open=false">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="{{ route('dashboard') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-      <a href="{{ route('teachers') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Teachers</a>
+      <a href="{{ route('dashboard') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>      
       <a href="{{ route('blog') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Blog</a>      
     </div>
   </div>

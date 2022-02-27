@@ -14,26 +14,14 @@ class DashboardController extends Controller
          return redirect()->route('adminadd');
      }
 
-     elseif(Auth::user()->hasRole('teacher')){         
+     elseif(Auth::user()->hasRole('entrenador')){         
         $teacher = Auth::user();
-        $reservedClasses = array(
-            'list'=> DB::table('reserved_classes')
-            ->Join('teacher_classes','teacher_classes.id','=','teacher_class_id')
-            ->where('reserved_classes.teacher_id',$teacher->id)
-            ->get());
-            // return $reservedClasses;
-            return view('teacherdash',$teacher,$reservedClasses);
+            return view('teacherdash',$teacher);
      }
 
-     elseif(Auth::user()->hasRole('student')){
-         $student = Auth::user();
-         $studentClasses = array(
-            'list' => DB::table('reserved_classes')
-            ->Join('teacher_classes','teacher_classes.id','=','teacher_class_id')
-            ->where('student_id',$student->id)
-            ->get());
-            // return $studentClasses;
-         return view('userdash',$studentClasses);
+     elseif(Auth::user()->hasRole('asesorado')){
+         $student = Auth::user();        
+         return view('userdash');
      }
    }
 

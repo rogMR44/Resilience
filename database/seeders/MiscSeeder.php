@@ -19,27 +19,27 @@ class MiscSeeder extends Seeder
     public function run()
     {
         $category = Category::create([
-            'name'=>'importance',
-            'slug'=>'importance',                   
+            'name'=>'nutricion',
+            'slug'=>'nutricion',                   
          ]);  
          
         $tag = Tag::create([
-            'name'=>'english',
-            'slug'=>'english',       
+            'name'=>'ejercicio',
+            'slug'=>'ejercicio',       
             'color'=>'blue',
         ]);  
          
         $tag2 = Tag::create([
-            'name'=>'spanish',
-            'slug'=>'spanish',       
+            'name'=>'salud',
+            'slug'=>'salud',       
             'color'=>'green',
         ]);  
 
-        $language = Language::create([
-            'name'=>'spanish',
-            'slug'=>'spanish',
-            'color'=>'spanish',     
-        ]);        
+        // $language = Language::create([
+        //     'name'=>'spanish',
+        //     'slug'=>'spanish',
+        //     'color'=>'spanish',     
+        // ]);        
 
         // $product1 = Product::create([
         //     'name' => 'Plan 1',

@@ -27,28 +27,22 @@ class UserSeeder extends Seeder
         ]);
 
         $teacher1 = User::create([
-            'name'=>'teacher',
-            'email'=>'teacher@email.com',
+            'name'=>'entrenador',
+            'email'=>'entrenador@email.com',
             'password'=>bcrypt('12345678'),
-            'isteacher'=>('2'),          
-            'realname'=>'Roger',
-            'introduction'=>'Hello join a profesional',
-            'about'=>'Hello this me me',
-            'class_link'=>'https://celem.mx/',
          ]);
-        $teacher1->attachRole('teacher');
+        $teacher1->attachRole('entrenador');
         $teacherimg = UserImage::factory(1)->create([
             'imageable_id'=>$teacher1->id,
             'imageable_type'=>User::class
         ]);
 
         $student1 = User::create([
-            'name'=>'student',
-            'email'=>'student@email.com',
-            'password'=>bcrypt('12345678'),  
-            'num_classes'=>'2',         
+            'name'=>'asesorado',
+            'email'=>'asesordo@email.com',
+            'password'=>bcrypt('12345678'),   
         ]);
-        $student1->attachRole('student');   
+        $student1->attachRole('asesorado');
         $studentimg = UserImage::factory(1)->create([
             'imageable_id'=>$student1->id,
             'imageable_type'=>User::class

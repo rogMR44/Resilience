@@ -19,12 +19,7 @@ class StudentController extends Controller
 
     public function show($id){
         $student = Auth::user();
-        $classInfo = array(
-            'list' => DB::table('reserved_classes')
-            ->Join('teacher_classes','teacher_classes.id','=','teacher_class_id')
-            ->where('teacher_class_id',$id)
-            ->get());
-        return view('student.classinfo',$classInfo);
+        return view('student.classinfo');
         // return $classInfo;
         // return $id;
     }
@@ -57,8 +52,7 @@ class StudentController extends Controller
                     ->where('id',$request->input('userid'))
                     ->update([
                         'name'=>$request->input('name'),
-                        'email'=>$request->input('email'),
-                        'realname'=>$request->input('real_name')
+                        'email'=>$request->input('email'),                        
                     ]);
                     return redirect('student/profile');
     }

@@ -17,9 +17,8 @@ use PhpParser\Builder\Class_;
 class TeacherController extends Controller
 {
     function index()
-    {
-        $languages = Language::all();
-        return view('teacher.profile', compact('languages'), array('user' => Auth::user()));
+    {        
+        return view('teacher.profile', array('user' => Auth::user()));
     }
     public function updatetavatar(Request $request, User $user)
     {

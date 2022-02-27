@@ -45,13 +45,7 @@
                         <x-label for="name" :value="__('User Name')" />
         
                         <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{Auth::user()->name}}" autofocus />
-                    </div>
-                    
-                    <div class="mt-4">
-                        <x-label for="real_name" :value="__('Name')" />
-        
-                        <x-input id="real_name" class="block mt-1 w-full" type="text" name="real_name" value="{{Auth::user()->realname}}" autofocus />
-                    </div>
+                    </div>                    
         
                     <!-- Email Address -->
                     <div class="mt-4">
