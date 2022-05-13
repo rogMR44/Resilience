@@ -38,6 +38,12 @@
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                     </a>
                 </x-slot>
+                @if (session('message1'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 my-2 rounded relative" role="alert">
+                        <strong class="font-bold">Success</strong>
+                        <span class="block sm:inline">{{session('message1')}}</span>
+                    </div>
+                @endif
                 <form action="\updateprofile" method="POST" class="">            
                     @csrf
                     <input type="hidden" name="userid" value="{{$user->id}}">

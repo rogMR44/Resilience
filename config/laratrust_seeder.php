@@ -22,7 +22,7 @@ return [
             'profile' => 'r,u'
         ],
         'asesorado' => [
-            'profile' => 'r,u',
+            'profile' => 'c,r,u,d',
         ]
     ],
 

@@ -1,10 +1,10 @@
 <x-app-layout>   
     <div class="flex flex-col items-center py-10">
-        <h1 class="text-xl font-bold py-2">Categories</h1>
+        <h1 class="text-xl font-bold py-2">Categorias de Blog</h1>
         <div class="flex items-center justify-start mt-4">
             <a href="{{route('admin.categories.create')}}">
                 <button class="m-6 px-6 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-                    Create category
+                    Crear categoria
                 </button>
             </a>
         </div>

@@ -37,7 +37,9 @@
             </a>
             <div class="hidden sm:block items-center justify-center">
             {{-- Menu items --}}
-                <div class="flex space-x-4">
+                <div class="flex space-x-4 ml-4">
+                    <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Blog</a> 
+                    <a href="{{route('exercise_guide')}}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Guia de Ejercicios</a>
                     {{-- <a href="{{ route('') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Teachers</a> --}}
                     {{-- <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-red-400 block px-3 py-2 rounded-md font-bold text-xl">Blog</a>                       --}}
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->                    
@@ -47,19 +49,32 @@
       @auth
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">                              
                 @if (Auth::user()->hasRole('admin'))
-              
                   <div class="" x-data="{open:false}">
                     <div>
                       <button x-on:click="open = true" type="button" class="text-white hover:underline hover:text-red-400 flex text-sm rounded-md focus:outline-none" id="user-menu" aria-expanded="false" aria-haspopup="true">
                         <span class="sr-only">Open user menu</span>
                           {{-- add user profile picture --}}
-                          <label for="" class="text-white hover:underline hover:text-yellow-400 block px-3 py-2 rounded-md font-bold text-xl">Blog Administration</label>
+                          {{-- <label for="" class="text-white hover:underline hover:text-yellow-400 block px-3 py-2 rounded-md font-bold text-xl">Blog Administration</label> --}}
                         </button>
                     </div>                    
-                    <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">                      
+                    {{-- <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">                      
                       <a href="{{ route('admin.posts.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Posts</a>
                       <a href="{{ route('admin.categories.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Categories</a>
                       <a href="{{ route('admin.tags.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Tags</a>
+                    </div> --}}
+                  </div>  
+
+                  <div class="" x-data="{open:false}">
+                    <div>
+                      <button x-on:click="open = true" type="button" class="text-white hover:underline hover:text-red-400 flex text-sm rounded-md focus:outline-none" id="exercise_guide-menu" aria-expanded="false" aria-haspopup="true">
+                        <span class="sr-only">Open user menu</span>
+                          {{-- add user profile picture --}}
+                          {{-- <label for="" class="text-white hover:underline hover:text-yellow-400 block px-3 py-2 rounded-md font-bold text-xl">Exercise Guide Administration</label> --}}
+                        </button>
+                    </div>                    
+                    <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">                      
+                      {{-- <a href="{{ route('admin.exercise_guide.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Exercises</a>
+                      <a href="{{ route('admin.exercise_guide_category.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Categories</a>                       --}}
                     </div>
                   </div>                          
                 @endif                              
@@ -83,19 +98,20 @@
                     Leaving: "transition ease-in duration-75"
                     From: "transform opacity-100 scale-100"
                     To: "transform opacity-0 scale-95"
-                -->
+                -->                   
                   <div x-show="open" x-on:click.away="open=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                    @if (Auth::user()->hasRole('asesorado'))             
+                    @if (Auth::user()->hasRole('asesorado'))                                   
                       <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
                       <a href="{{ route('student.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>
                     @endif
                     @if (Auth::user()->hasRole('entrenador'))
+                      
                       <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
-                      <a href="{{ route('teacher.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>    
+                      <a href="{{ route('trainer.profile') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Profile</a>    
                     @endif
                     @if (Auth::user()->hasRole('admin'))                      
                       <a href="{{ route('dashboard') }}" class="text-gray-700 hover:bg-gray-100 block px-4 py-2 rounded-md">Dashboard</a>
-                      <a href="{{ route('admin.users.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Administration</a>                     
+                      {{-- <a href="{{ route('admin.users.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Administration</a>                      --}}
                     @endif
                     <form method="POST" action="{{ route('logout') }}">
                       @csrf
@@ -108,10 +124,8 @@
               </div>
             </div>
             @else
-            <div>
-                <a href="{{ route('blog') }}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Blog</a> 
-                <a href="" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Guia de Ejercicios</a>
-                <a href="{{ route('login') }}" class="text-white hover:underline hover:text-yellow-400 px-3 py-2 rounded-md font-bold text-xl">Iniciar Sesion</a>                
+            <div>                
+                <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Iniciar Sesion</a>                
         </div>    
         @endauth
     </div>

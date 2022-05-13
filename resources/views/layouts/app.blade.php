@@ -55,4 +55,10 @@
             {{$js}}
         @endisset
     </body>
+    <footer>
+        <div class="bg-black py-8 grid grid-cols-2">
+            <span class="text-white font-medium ml-10">Resilience 2022</span>
+            <span class="text-white font-medium mr-10 justify-self-end"><a class="hover:text-yellow-300" href="">Lorem ipsum dolor</a> | <a class="hover:text-yellow-300" href="">Adipiscing elit</a></span>
+        </div>
+    </footer>
 </html>

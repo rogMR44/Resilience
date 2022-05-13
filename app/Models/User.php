@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**
@@ -47,16 +48,13 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
-    public function teacherClasses(){
-        return $this->hasMany(TeacherClass::class);
-    }
-    public function reservedClasses(){
-        return $this->hasMany(ReservedClass::class);
-    }
-    public function languages(){
-        return $this->belongsToMany(Language::class);
-    }
     public function userImage(){
         return $this->morphOne(UserImage::class,'imageable');
+    }
+    public function food_plan(){
+        return $this->hasOne(FoodPlan::class);
+    }
+    public function measurements(){
+        return $this->hasOne(Measurement::class);    
     }
 }

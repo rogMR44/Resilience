@@ -93,6 +93,7 @@ class PostsController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+        // return $request;
         $post->update($request->all());
 
         if ($request->file('file')) {

@@ -54,7 +54,7 @@ class StudentController extends Controller
                         'name'=>$request->input('name'),
                         'email'=>$request->input('email'),                        
                     ]);
-                    return redirect('student/profile');
+                    return redirect('student/profile')->with('message1','Info updated successfully');
     }
 
     function updatepw(Request $request){

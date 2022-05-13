@@ -74,6 +74,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
+        // return $tag;
         $colors = [
             'green'=>'Green',
             'blue'=>'Blue',

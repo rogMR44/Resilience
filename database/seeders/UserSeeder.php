@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
         $admin = User::create([
            'name'=>'admin',
            'email'=>'admin@email.com',
-           'password'=>bcrypt('12345678'),           
+           'password'=>bcrypt('12345678'),   
+           'type'=>'1',        
         ]);
         $admin->attachRole('admin');
         $adminimg = UserImage::factory(1)->create([
@@ -26,21 +27,23 @@ class UserSeeder extends Seeder
             'imageable_type'=>User::class
         ]);
 
-        $teacher1 = User::create([
+        $trainer1 = User::create([
             'name'=>'entrenador',
             'email'=>'entrenador@email.com',
             'password'=>bcrypt('12345678'),
+            'type'=>'2',
          ]);
-        $teacher1->attachRole('entrenador');
+        $trainer1->attachRole('entrenador');
         $teacherimg = UserImage::factory(1)->create([
-            'imageable_id'=>$teacher1->id,
+            'imageable_id'=>$trainer1->id,
             'imageable_type'=>User::class
         ]);
 
         $student1 = User::create([
             'name'=>'asesorado',
             'email'=>'asesordo@email.com',
-            'password'=>bcrypt('12345678'),   
+            'password'=>bcrypt('12345678'),
+            'type'=>'3', 
         ]);
         $student1->attachRole('asesorado');
         $studentimg = UserImage::factory(1)->create([

@@ -49,10 +49,25 @@ class UsersController extends Controller
             'password' => 'required',
             'user_type' => 'required',                        
         ]);
+        
+        switch ($request->user_type) {
+            case 'admin':
+                $type = 1;
+                break;
+            case 'entrenador':
+                $type = 2;
+                break;
+            case 'asesorado':
+                $type = 3;
+                break;
+            
+        }
+        // return $type;
         $user = User::create([ 
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'type' => $type,   
         ]);
         // return $request;
         switch ($request->user_type) {
