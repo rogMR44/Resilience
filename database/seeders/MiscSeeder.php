@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Exercise;
 use App\Models\Tag;
 use App\Models\ExerciseCategory;
+use App\Models\Measurement;
 
 class MiscSeeder extends Seeder
 {
@@ -48,19 +49,29 @@ class MiscSeeder extends Seeder
             'slug'=>'salud',       
             'color'=>'green',
         ]);
-        
-        
 
-        // $language = Language::create([
-        //     'name'=>'spanish',
-        //     'slug'=>'spanish',
-        //     'color'=>'spanish',     
-        // ]);        
-
-        // $product1 = Product::create([
-        //     'name' => 'Plan 1',
-        //     'description' => '',
-        //     'price' => ''
-        // ]);
+        $medida = Measurement::create([
+            'cuello'=>'10',
+            'pecho'=>'10',
+            'hombro'=>'10',
+            'bicep_derecho_r'=>'10',
+            'bicep_izquierdo_r'=>'10',
+            'bicep_derecho_c'=>'10',
+            'bicep_izquierdo_c'=>'10',
+            'antebrazo_derecho'=>'10',
+            'antebrazo_izquierdo'=>'10',
+            'muneca_derecha'=>'10',
+            'muneca_izquierda'=>'10',
+            'cintura'=>'10',
+            'gluteo'=>'10',
+            'muslo_derecho'=>'10',
+            'muslo_izquierdo'=>'10',
+            'pantorilla_derecha'=>'10',
+            'pantorilla_izquierda'=>'10',
+            'peso'=>'10',
+            'estatura'=>'10',
+            'date_recorded'=>'2022/10/10',
+            'student_id'=>'3',
+        ]);
     }
 }

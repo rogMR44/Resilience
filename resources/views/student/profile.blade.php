@@ -8,9 +8,9 @@
                 <div class="flex items-center justify-center">
                     <div class="image-wrapper">
                         @isset ($user->userImage)
-                            <img id="picture" class="rounded-full w-28" src="{{ url('storage/' . $user->userImage->url) }}" alt="">
+                            <img id="picture" class="rounded-full w-28" src="{{ url('storage/' . $user->userImage->url) }}" alt="Profile Picture">
                         @else
-                            <img id="picture" class="rounded-full w-28" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+                            <img id="picture" class="rounded-full w-28" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture">
                         @endisset
                     </div>
                     {{-- <img src="@if($user->userImage) {{ url('storage/' . $user->userImage->url) }} @else https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png @endif" alt="user image" class="rounded-full w-28"> --}}

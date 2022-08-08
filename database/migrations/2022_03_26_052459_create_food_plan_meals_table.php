@@ -15,12 +15,13 @@ class CreateFoodPlanMealsTable extends Migration
     {
         Schema::create('food_plan_meals', function (Blueprint $table) {
             $table->id();    
-            $table->unsignedBigInteger('food_plan_id');
+            
+            $table->unsignedBigInteger('student_id');
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->time('meal_time')->nullable();
 
-            $table->foreign('food_plan_id')->references('id')->on('food_plans')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

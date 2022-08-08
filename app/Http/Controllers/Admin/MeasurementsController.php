@@ -62,9 +62,10 @@ class MeasurementsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Measurement $measurement)
+    public function edit(Measurement $user_measurement)
     {
-        //       
+        // return $user_measurement->id;
+        return view('admin.measurements.viewData',compact('user_measurement'));
     }
 
     /**

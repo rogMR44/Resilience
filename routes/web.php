@@ -67,9 +67,14 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('exercise_categories', ExerciseCategoryController::class)->names('admin.exercise_guide_category');
 
     Route::resource('user_measurement', AdminMeasurementsController::class)->names('admin.a_measurements');
-    Route::get('user_measurement/{user_measurement}', [AdminMeasurementsController::class, 'viewData'])->name('admin.a_measurements_viewData');
 
-    Route::resource('food_plan', AdminFoodPlanController::class)->names('admin.a_food_plan');
+    Route::resource('user_food_plan', AdminFoodPlanController::class)->names('admin.a_food_plan');
+    Route::get('foodPlan/{a}', [AdminFoodPlanController::class, 'createMeal'])->name('admin.a_food_plan.createMeal');
+    Route::post('foodPlan', [AdminFoodPlanController::class, 'storeMeal'])->name('admin.a_food_plan.storeMeal');
+    Route::get('meal/{meal}/edit', [AdminFoodPlanController::class, 'editMeal'])->name('admin.a_food_plan.editMeal');
+    Route::post('meal{meal}', [AdminFoodPlanController::class, 'updateMeal'])->name('admin.a_food_plan.updateMeal');
+    Route::delete('meal{meal}', [AdminFoodPlanController::class, 'deleteMeal'])->name('admin.a_food_plan.deleteMeal');
+    
     Route::resource('workout_plan', AdminExerciseController::class)->names('admin.a_workout_plan');
 });
 

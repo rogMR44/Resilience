@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\FoodPlan;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserMealPlan;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -83,7 +85,7 @@ class UsersController extends Controller
                 break;
             case 'asesorado':
                 // echo "driver user";
-                $user->attachRole('asesorado');
+                $user->attachRole('asesorado');                
                 return redirect()->route('admin.users.index',$user)->with('info','New driver created successfully');
                 break;           
         }

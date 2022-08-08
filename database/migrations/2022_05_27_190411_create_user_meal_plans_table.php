@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoodPlansTable extends Migration
+class CreateUserMealPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateFoodPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('food_plans', function (Blueprint $table) {
+        Schema::create('user_meal_plans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id')->nullable();
-            $table->string('plan_pdf')->nullable();
-
-            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('url');
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type');
 
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateFoodPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food_plans');
+        Schema::dropIfExists('user_meal_plans');
     }
 }

@@ -11,7 +11,7 @@ class FoodPlanMeal extends Model
 
     protected $guarded = ['id','created_at','updated_at'];
 
-    public function food_plan(){
-        return $this->belongsTo(FoodPlan::class);
+    public function meals(){
+        return $this->belongsTo(User::class);
     }
 }

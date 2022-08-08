@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Student;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\FoodPlanMeal;
 
 class Food_PlanController extends Controller
 {
@@ -14,7 +15,10 @@ class Food_PlanController extends Controller
      */
     public function index()
     {
-        return view('student.food_plan.index');
+        $student = Auth::user();
+        // return $student;
+        $meals = FoodPlanMeal::where('student_id',$student->id)->get()->sortBy('meal_time');
+        return view('student.food_plan.index',compact('student','meals'));
     }
 
     /**

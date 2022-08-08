@@ -18,21 +18,21 @@
             </thead>
 
             <tbody>
-                @foreach ($asesorados as $user_measurement)
+                @foreach ($asesorados as $asesorado)
                     <tr>                                                                     
-                        <td class="border px-8 py-4">{{$user_measurement->name}}</td>                        
+                        <td class="border px-8 py-4">{{$asesorado->name}}</td>                        
                         <td class="px-8 py-4 grid gap-2 md:grid-cols-3">
                             {{-- <a href="{{ route('',$asesorado)}}"> --}}
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
                                     Plan de Entrenamiento
                                 </button>
                             </a>
-                            {{-- <a href="{{ route('',$asesorado)}}"> --}}
+                            <a href="{{ route('admin.a_food_plan.show',$asesorado)}}">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
                                     Plan Alimenticio
                                 </button>
                             </a>
-                            <a href="{{ route('admin.a_measurements.show',$user_measurement)}}">
+                            <a href="{{ route('admin.a_measurements.show',$asesorado)}}">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
                                     Medidas
                                 </button>

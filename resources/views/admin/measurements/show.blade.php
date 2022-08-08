@@ -20,17 +20,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($measurements as $measurement)
+                    @foreach ($measurements as $user_measurement)
                         <tr>
-                            <td class="border px-8 py-4">{{$measurement->id}}</td>
+                            <td class="border px-8 py-4">{{$user_measurement->id}}</td>                            
+                            <td class="border px-8 py-4">{{$user_measurement->date_recorded}}</td>
                             <td class="border px-8 py-4">
-                                <a href="{{ route('admin.a_measurements.edit',$measurement)}}">
+                                <a href="{{ route('admin.a_measurements.edit', $user_measurement)}}">
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
                                         Ver datos
                                     </button>
                                 </a>
                             </td>
-                            <td class="border px-8 py-4">{{$measurement->date_recorded}}</td>                            
                         </tr>
                     @endforeach
                 </tbody>

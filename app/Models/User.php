@@ -51,8 +51,11 @@ class User extends Authenticatable
     public function userImage(){
         return $this->morphOne(UserImage::class,'imageable');
     }
-    public function food_plan(){
-        return $this->hasOne(FoodPlan::class);
+    public function userMealPlan(){
+        return $this->morphOne(UserMealPlan::class,'imageable');
+    }
+    public function food_plan_meal(){
+        return $this->hasMany(FoodPlanMeal::class);
     }
     public function measurements(){
         return $this->hasOne(Measurement::class);    

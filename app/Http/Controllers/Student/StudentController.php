@@ -77,29 +77,4 @@ class StudentController extends Controller
         }
 
     }
-
-    public function cancelclass(Request $request){
-        $student = Auth::user();
-        $student_id = $student->id;
-        $num_classes = $student->num_classes;
-        // echo($student_id);
-        // echo($num_classes);
-        // return $request->class_id;
-
-        $class_id = $request->class_id;
-        $delete = DB::table('reserved_classes')
-                    ->where('teacher_class_id',$class_id)
-                    ->delete();
-        $updating = DB::table('teacher_classes')
-                    ->where('id',$class_id)
-                    ->update([                
-                        'status' => '1',                        
-                    ]);
-        $update= DB::table('users')
-                    ->where('id',$student->id)
-                    ->update([                
-                    'num_classes' => $num_classes+1,                        
-                    ]);
-        return redirect()->route('dashboard');
-    }
 }

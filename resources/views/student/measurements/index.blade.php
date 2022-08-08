@@ -23,32 +23,27 @@
             <table class="shadow-lg bg-white">
                 <thead>
                     <tr>
-                        <th class="border px-8 py-4">ID</th>
-                        <th class="border px-8 py-4">Visualizar</th>
+                        <th class="border px-8 py-4">ID</th>                        
                         <th class="border px-8 py-4">Fecha</th>
-                        <th class="border px-8 py-4 col-span-2"></th>
+                        <th class="border px-8 py-4 col-span-3">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($measurements as $measurement)
-                        <tr>
-                            <td class="border px-8 py-4">{{$measurement->id}}</td>
-                            <td class="border px-8 py-4">
+                        <tr class="">
+                            <td class="border text-center">{{$measurement->id}}</td>              
+                            <td class="border text-center">{{$measurement->date_recorded}}</td>
+                            <td class="flex px-2">
                                 <a href="{{ route('student.measurements.show',$measurement)}}">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
+                                    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 m-1 rounded">
                                         Ver datos
                                     </button>
                                 </a>
-                            </td>
-                            <td class="border px-8 py-4">{{$measurement->date_recorded}}</td>
-                            <td>
                                 <a href="{{ route('student.measurements.edit',$measurement)}}">
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded">
                                         Edit
                                     </button>
                                 </a>
-                            </td>
-                            <td>                        
                                 <form class="form-tag-admin" action="{{ route('student.measurements.destroy',$measurement)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -56,7 +51,7 @@
                                         Delete
                                     </button>
                                 </form>                        
-                            </td>
+                            </td>                            
                         </tr>
                     @endforeach
                 </tbody>
